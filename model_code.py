@@ -4,6 +4,7 @@ from keras.utils.np_utils import to_categorical
 from keras.models import Sequential
 from keras.layers import Conv2D,MaxPooling2D,Flatten,Dense
 from keras.optimizers import Adam
+import os
 
 #load dataset
 dataset = mnist.load_data('projDataset.db')
@@ -25,8 +26,7 @@ y_test = to_categorical(y_test)
 
 #create the CNN model
 model = Sequential()
-model.add(Dense(units=128, input_dim=28*28, activation='relu'))
-model.add(Dense(units=32, activation='relu'))
+model.add(Dense(units=256, input_dim=28*28, activation='relu'))
 model.add(Dense(units=10, activation='softmax'))
 
 #get the parameters for the model
@@ -40,4 +40,8 @@ model.fit(X_train,y_train,epochs=10,verbose=0,validation_data=(X_test,y_test))
 
 #get the model accuracy
 scores = model.evaluate(X_test,y_test,verbose=0)
-print("accuracy: %.2f" % (scores[1]))
+print("accuracy: %.2f" % (scores[1]*100))
+if scores>=96.00:
+	os.system("exit 0")
+else:
+	os.system("exit 1")
