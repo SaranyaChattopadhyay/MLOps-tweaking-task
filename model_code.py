@@ -27,6 +27,9 @@ y_test = to_categorical(y_test)
 #create the CNN model
 model = Sequential()
 model.add(Dense(units=256, input_dim=28*28, activation='relu'))
+model.add(Dense(units=128, activation='relu'))
+model.add(Dense(units=64, activation='relu'))
+model.add(Dense(units=32, activation='relu'))
 model.add(Dense(units=10, activation='softmax'))
 
 #get the parameters for the model
