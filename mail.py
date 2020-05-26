@@ -1,5 +1,5 @@
 import smtplib
-rcvr = "sutirtha16@gmail.com"
+rcvr = "saptarsiroy12@gmail.com"
 sender = "chattopadhyaysaranya@gmail.com"
 msg = "Hey Developer, your model has greater than 96% accuracy and is ready to use for predictions!!" 
 pswd = "24052001"
